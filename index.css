@@ -36,6 +36,7 @@
 .res-card {
     padding: 5px;
     width: 200px;
+    margin: 10px;
 }
 
 .res-card:hover{
@@ -43,10 +44,32 @@
     border: 1px solid black;
 }
 
-.search {
-    padding: 10px;
-}
-
 .res-logo {
     width: 100%;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap:wrap;
+    margin: 5px;
+    padding: 5px;
+}
+
+.shimmer-cards {
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+    margin: 20px
+}
+
+.login-btn {
+    padding: auto;
+    margin:auto;
+}
+
+.filter{
+    display: flex;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
 }
