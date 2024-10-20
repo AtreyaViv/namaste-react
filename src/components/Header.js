@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utils/constants";
 import {useState} from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [btnReact, setBtnReact] = useState("Login");
@@ -12,10 +13,10 @@ const Header = () => {
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link>Cart</Link></li>
                     <button className="login-btn" onClick={()=>{
                         btnReact === "Login" ? setBtnReact("Logout") : setBtnReact("Login")
                     }}>
@@ -28,5 +29,16 @@ const Header = () => {
         </div>
     )
 }
+
+// route : https://www.swiggy.com/city/delhi/chaap-wale-sector-7g-rohini-rest890419
+
+// https://www.swiggy.com/dapi/menu/pl?
+// page-type=REGULAR_MENU 
+// complete-menu=true 
+// lat=28.7040592 
+// lng=77.10249019999999 
+// restaurantId=890419 
+// catalog_qa=undefined 
+// submitAction=ENTER
 
 export default Header;

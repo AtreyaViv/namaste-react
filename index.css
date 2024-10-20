@@ -73,3 +73,10 @@
     padding: 10px;
     margin: 10px;
 }
+
+.emp-card {
+    padding: 10px;
+    border: 1px solid black;
+    width:auto;
+    height: auto;
+}

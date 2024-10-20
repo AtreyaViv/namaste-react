@@ -5,7 +5,8 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/ContactUs";
 import Error from "./components/Error";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ResturantMenu from "./components/ResturantMenu";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // const heading = React.createElement("h1", {
 //     id: "heading", xyz: "abc"
@@ -52,7 +53,7 @@ const AppLoyout = () => {
     return (
         <div className = "app">
            <Header />
-           <Body />
+           <Outlet />
         </div>
     )
 }
@@ -61,15 +62,25 @@ const appRouter = createBrowserRouter([
   {
     path : "/",
     element: <AppLoyout />,
+    children:[
+      {
+        path:"/",
+        element: <Body />
+      },
+      {
+        path : "/about",
+        element : < About />
+      },
+      {
+        path : "/contact",
+        element : < Contact />
+      },
+      {
+        path : "/resturant/:resId",
+        element : < ResturantMenu />
+      }
+    ],
     errorElement: <Error />
-  },
-  {
-    path : "/about",
-    element : < About />
-  },
-  {
-    path : "/contact",
-    element : < Contact />
   }
 ])
 

@@ -3,6 +3,7 @@ import resList from "../utils/mockData";
 import { useState, useEffect } from "react"; // whenver a state variable updates, react re renders the component -- super powerfull variable -- hooks
 import react from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
@@ -41,7 +42,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfResturants.map((resturant) => (
-          <ResturantCard key={resturant.info.id} resData={resturant} />
+          <Link key={resturant.info.id} to={`/resturant/${resturant.info.id}`}><ResturantCard resData={resturant} /></Link>
         ))}
       </div>
     </div>
