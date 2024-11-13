@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"; // whenver a state variable updates
 import react from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
@@ -19,6 +20,14 @@ const Body = () => {
     //console.log(json?.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants);
     //data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     setListOfResturants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  }
+
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false) {
+    return (
+    <div><h2>Oop's!! Something went wrong </h2><h3>Please check your internet connection</h3></div>
+  )
   }
 
    return listOfResturants.length === 0 ? (<Shimmer />) :(
